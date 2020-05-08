@@ -12,34 +12,34 @@ public class Pila {
     }
 
     public void push(Invitato persona){
-        Nodo p;
-        p=creaNodo(persona,head);
-        head=p;
+        Nodo p;                                 //Dichiari un puntatore p di tipo Nodo
+        p=creaNodo(persona,head);               //Creo il nodo e lo assegno al puntatore
+        head=p;                                 //Head punta al nodo creato
     }
 
     public Invitato pop(){
         Nodo p;
         if (head==null)
-            return null;    //La lista è vuota
-        p=head;             //Se lo conserva
-        head=head.getLink();//Scatta all'elemento successivo, eliminando il primo
-        return p.getInfo(); //Stampa quello conservato
+            return null;                        //La lista è vuota
+        p=head;                                 //Se lo conserva
+        head=head.getLink();                    //Scatta all'elemento successivo, eliminando il primo
+        return p.getInfo();                     //Stampa quello conservato
     }
 
     public String toString(){
         Nodo p=head;
-        String pila = "head ->";
+        String risultato = "head ->";
         if (p==null)
-            return pila+" null";    //Se la lista è vuota
+            return risultato+" null";                //Se la lista è vuota
 
         while (p!=null) {
-            pila=pila+"["+p.getInfo().toString()+"|";
+            risultato=risultato+"["+p.getInfo().toString()+"|";
             if (p.getLink()==null)
-                pila=pila+"null]";
+                risultato=risultato+"null]";
             else
-                pila=pila+"+]-->";
+                risultato=risultato+"+]-->";
             p=p.getLink();
         }
-        return pila;
+        return risultato;
     }
 }
